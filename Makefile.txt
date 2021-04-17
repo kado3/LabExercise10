@@ -1,0 +1,14 @@
+CXX = g++
+CFLAGS = .std=c++17
+LDFLAGS = -lm
+
+ALL =testStabLineProg
+
+output: testStabLineProg.o readPoints.o readLines.o printLineByCoords.o getStabbedLines.o
+	${CXX} ${CFLAGS} testStabLineProg.o readPoints.o readLines.o printLineByCoords.o getStabbedLines.o -o output
+
+testStabLineProg.o: testStabLineProg.cpp stabbingLines.h
+	${CXX} ${CFLAGS} -c testStabLineProg.cpp -I.
+
+readPoints.o: readPoints.cpp stabbingLines.h
+	${CXX} ${CFLAGS} -c readPoints.cpp - I.
